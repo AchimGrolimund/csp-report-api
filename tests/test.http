@@ -1,0 +1,26 @@
+POST http://localhost:8080/report
+content-type: application/json
+Authorization: Bearer <token>
+//Origin: http://myserver:3000
+
+{
+  "csp-report": {
+    "document-uri": "http://localhost:3000/?%3Cscript%20src=%22https://example.com/some-external-script.js%22%3E%3C/script%3E",
+    "referrer": "",
+    "violated-directive": "script-src-elem",
+    "effective-directive": "script-src-elem",
+    "original-policy": "default-src 'self'; script-src 'self'; report-uri http://localhost:8080/csp;",
+    "disposition": "report",
+    "blocked-uri": "inline",
+    "line-number": 14,
+    "source-file": "http://localhost:3000/",
+    "status-code": 200,
+    "script-sample": ""
+  }
+}
+
+### GET /report
+GET http://localhost:8080/health
+content-type: application/json
+
+
