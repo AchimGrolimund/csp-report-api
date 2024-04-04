@@ -1,0 +1,30 @@
+version: '3.2'
+services:
+  mongodb:
+    container_name: csp-report-mongodb
+    image: mongo
+    ports:
+      - '27017:27017'
+    volumes:
+      - dbdata:/data/db
+    environment:
+        MONGO_INITDB_ROOT_USERNAME: root
+        MONGO_INITDB_ROOT_PASSWORD: toor
+  csp-report-api:
+    container_name: csp-report-api
+    build:
+      context: ..
+      dockerfile: build/Dockerfile
+    ports:
+      - '8080:8080'
+    depends_on:
+      - mongodb
+    environment:
+      DB_NAME: csp-report
+      DB_COLLECTION: reports
+      DB_USER: root
+      DB_PASSWORD: toor
+      DB_ENDPOINT: mongodb
+      DB_PORT: 27017
+volumes:
+  dbdata:

@@ -28,7 +28,7 @@ func main() {
 
 	err = godotenv.Load()
 	if err != nil {
-		log.Fatal("Error loading .env file")
+		log.Error("Error loading .env file")
 	}
 
 	dbName := os.Getenv("DB_NAME")

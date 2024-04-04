@@ -4,7 +4,7 @@ Authorization: Bearer <token>
 //Origin: http://myserver:3000
 
 {
-  "csp-report": {
+  "csp-report": {   
     "document-uri": "http://localhost:3000/?%3Cscript%20src=%22https://example.com/some-external-script.js%22%3E%3C/script%3E",
     "referrer": "",
     "violated-directive": "script-src-elem",

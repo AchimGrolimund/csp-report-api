@@ -1,0 +1,6 @@
+*.exe
+.idea/
+*.test
+README.md
+*.http
+*.sh
