@@ -1,6 +1,6 @@
 POST http://localhost:8080/report
 content-type: application/json
-Authorization: Bearer <token>
+#Authorization: Bearer <token>
 //Origin: http://myserver:3000
 
 {

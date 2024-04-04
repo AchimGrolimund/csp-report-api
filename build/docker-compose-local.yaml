@@ -1,0 +1,31 @@
+version: '3.2'
+services:
+  mongodb:
+    container_name: csp-report-mongodb
+    image: mongo
+    restart: unless-stopped
+    ports:
+      - '27017:27017'
+    volumes:
+      - dbdata:/data/db # Define the volume for the MongoDB data
+      - /docker/data/csp-report-mongodb/db:/data/db
+    environment: # Don't set the environment variables in production in the docker-compose file
+        MONGO_INITDB_ROOT_USERNAME: root
+        MONGO_INITDB_ROOT_PASSWORD: toor
+  csp-report-api:
+    container_name: csp-report-api
+    image: grolimundachim/csp-report-api:latest
+    restart: unless-stopped
+    ports:
+      - '8080:8080'
+    depends_on:
+      - mongodb
+    environment: # Don't set the environment variables in production in the docker-compose file
+      DB_NAME: csp-report
+      DB_COLLECTION: reports
+      DB_USER: root
+      DB_PASSWORD: toor
+      DB_ENDPOINT: mongodb
+      DB_PORT: 27017
+volumes:
+  dbdata:
