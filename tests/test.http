@@ -1,4 +1,6 @@
 POST http://localhost:8080/report
+#POST https://csp.groltech.ch/report
+#POST https://app.glitchtip.com/api/6307/security/?glitchtip_key=6172df200fb848e18ac2029f9c3b7f31
 content-type: application/json
 #Authorization: Bearer <token>
 //Origin: http://myserver:3000
@@ -15,7 +17,8 @@ content-type: application/json
     "line-number": 14,
     "source-file": "http://localhost:3000/",
     "status-code": 200,
-    "script-sample": ""
+    "script-sample": "",
+    "test": "lölli"
   }
 }
 
