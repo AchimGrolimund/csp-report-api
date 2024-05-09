@@ -24,6 +24,14 @@ func (h *Handler) SaveReportHandler(c *gin.Context) {
 		return
 	}
 
+	// Extrahieren Sie die Client-IP und den User-Agent aus dem HTTP-Request
+	clientIP := c.ClientIP()
+	userAgent := c.Request.UserAgent()
+
+	// Fügen Sie die Client-IP und den User-Agent zum Payload hinzu
+	report.Report.ClientIP = clientIP
+	report.Report.UserAgent = userAgent
+
 	if err := h.service.SaveReport(c.Request.Context(), &report); err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return

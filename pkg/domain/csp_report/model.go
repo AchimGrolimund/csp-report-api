@@ -18,4 +18,6 @@ type CSPReport struct {
 	SourceFile         string `json:"source-file"`
 	StatusCode         int    `json:"status-code"`
 	ScriptSample       string `json:"script-sample"`
+	ClientIP           string `json:"clientIP"`
+	UserAgent          string `json:"userAgent"`
 }
