@@ -20,4 +20,5 @@ type CSPReport struct {
 	ScriptSample       string `json:"script-sample"`
 	ClientIP           string `json:"clientIP"`
 	UserAgent          string `json:"userAgent"`
+	ReportTime         int    `json:"_time"`
 }
